@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.calcDiv {
+    background-color: whitesmoke;
+    height: 70vh;
+    width: 25vw;
+    display: flex;
+    position: relative;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 3%;
+}
+
+.btn0 {
+    box-sizing: border-box;
+    position: absolute;
+    background-color: rgb(148, 148, 148);
+    color:white;
+    width:96%;
+    height: 14.6%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 3%;
+    font-size: 3rem;
+    color:white;
+    font-weight: bold;
+    border-radius: 3%;
+}
+.btnOrange{
+    position: absolute;
+    background-color: orange;
+    color:black;
+    width:22.5%;
+    height: 14.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-radius: 3%;
+    font-weight: bold;
+}
+.btnGray{
+    position: absolute;
+    background-color: rgb(207, 207, 207);
+    color:black;
+    width:22.5%;
+    height: 14.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-radius: 3%;
+    font-weight: bold;
+}
+.btnGray0{
+    position: absolute;
+    background-color: rgb(207, 207, 207);
+    color:black;
+    width:47%;
+    height: 14.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-radius: 3%;
+    font-weight: bold;
+}

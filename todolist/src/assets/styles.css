@@ -1,0 +1,23 @@
+body {
+  margin: 0px;
+  background-color: gray;
+  width: 100vw;
+}
+.todoInput {
+  width: 100%;
+  border: 1px black solid;
+  height: 5vh;
+  background-color: rgb(197, 197, 197);
+}
+.updateInput {
+  width: 100%;
+  border: 1px black solid;
+  height: 4vh;
+  background-color: rgb(197, 197, 197);
+}
+li {
+  font-size: 1.4rem;
+  height: 4vh;
+}
+
+

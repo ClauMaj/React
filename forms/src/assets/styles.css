@@ -1,0 +1,29 @@
+body {
+  margin: 0px;
+  background-color: lightgray;
+}
+
+.formColor {
+  background-color: gray;
+  padding: 20px;
+}
+
+.formFont {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.navAnchor a {
+  font-size: 11px !important;
+  /* color: yellow !important; */
+}
+.quote {
+  font-size: 12px;
+  font-style: italic;
+  color: darkgray;
+}
+.projectHover li:hover {
+  background-color: rgb(250, 247, 210);
+  color: maroon;
+}

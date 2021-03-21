@@ -12,23 +12,49 @@ import { createStore } from "redux"; //Redux.createStore()
 import { Provider } from "react-redux"; // makes available the state by wraping all components
 import { v1 as uuidv1 } from "uuid"; // unique ID for each entry
 
-// Check if there is anything in local storage and if there is rad it and pass it to the store /// if not default values
-const storedState = localStorage.getItem('todos') ? {todos: JSON.parse(localStorage.getItem('todos'))} : {todos: [
-  {
-    id: uuidv1(),
-    todo: "Wake up!",
-    isEdit: false,
-  },
-],}
 
+// save state to local storage (convert to string and save)
+const saveToLocalStorage = (reduxGlobalState) => {
+  try {
+    const serializeState = JSON.stringify(reduxGlobalState);
+    localStorage.setItem('todos', serializeState)
+  }
+  catch (e) {
+    console.log(e);
+  }
+}
+
+
+// load data from local storage (return => if it exist => read and parse | if doesn't exist set initial value of store)
+const loadFromLocalStorage = () => {
+  const serializeState = localStorage.getItem('todos');
+  if (serializeState === null) {
+    return {
+      todos: [{
+        id: uuidv1(),
+        todo: "Wake up!",
+        isEdit: false,
+      }]
+    }
+  }
+  else {
+    return JSON.parse(serializeState) // JS object
+  }
+}
+
+// call the load function and then pass it to the store
+const persistedState = loadFromLocalStorage();
 // Create Store passing the reducer, initial state and ReduxDev tools link
 let store = createStore(
   reducer,
-  storedState,
+  persistedState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-
+// subscribes the saveToLocalStorage to the store (every time the state changes the localStorage is updated)
+store.subscribe(() => {
+  saveToLocalStorage(store.getState());
+})
 
 // default rendering method on the root element
 ReactDOM.render(

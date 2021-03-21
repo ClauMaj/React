@@ -11,22 +11,26 @@ const AddTodo = () => {
 
     let todoItem = {
       id: uuidv1(),
-      todo: e.target.todoinput.value,
+      todo: e.target[0].value,
       isEdit: false,
     };
 
     dispatch(addTodo(todoItem));
 
-    e.target.todoinput.value = "";
+    e.target[0].value = "";
   };
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input className="todoInput" type="text" id="todoinput" placeholder="Add to do..." /> <br />
-        <br />
-        <button className="btn btn-outline-warning float-right" type="submit">
-          Submit
-        </button>
+        <div className="input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text">To do:</span>
+          </div>
+          <input className="todoInput form-control" type="text" aria-label="With textarea"></input>
+          <div className="input-group-append">
+            <button className="btn btn-success" type="submit">Add To do</button>
+          </div>
+        </div>
       </form>
     </>
   );
